@@ -1,19 +1,16 @@
+import OperandStack from "../operand-stack/operandStack";
+
 export default class Calculator {
   constructor() {
-    this._stackOperators = [];
+    this._stackOperators = new OperandStack();
   }
 
   getAccumulator(): number {
-    if(this._stackOperators.length === 0) {
-      return 0.0;
-    }
-
-    return this._stackOperators[this._stackOperators.length-1];
+    return this._stackOperators.peek();
   }
 
   setAccomulator(value: number) {
-    this._stackOperators.pop();
-    this._stackOperators.push(value);
+    this._stackOperators.replaceTop(value);
   }
 
   enter() {
