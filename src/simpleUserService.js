@@ -7,6 +7,7 @@ export class SimpleUserService extends UserService {
   _timeSource: TimeSource;
 
   constructor(auditLog: AuditLog, userStore: UserStore, timeSource: TimeSource) {
+    super();
     this._auditLog = auditLog;
     this._userStore = userStore;
     this._timeSource = timeSource;
@@ -17,7 +18,7 @@ export class SimpleUserService extends UserService {
   }
 
   register = (username) => { 
-    if (_hasUser(username)) {
+    if (this._hasUser(username)) {
       this._auditLog.log("user", "duplicateregister", username);
     } else {
       this._auditLog.log("user", "register", username);

@@ -3,7 +3,7 @@ export class User {
   creationTime: DateTime;
 
   constructor(username: string, creationTime: DateTime) {
-    this._creationTime = creationTime;
-    this._username = username;
+    this.creationTime = creationTime;
+    this.username = username;
   }
 }
